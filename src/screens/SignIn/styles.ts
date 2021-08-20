@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.colors.background,
   },
   image: {
     width: '100%',
@@ -18,15 +17,19 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 50,
   },
   title: {
+    fontFamily: theme.fonts.title700,
     fontSize: 37,
     color: theme.colors.heading,
     textAlign: 'center',
     marginBottom: 16,
+    lineHeight: 40,
   },
   subtitle: {
+    fontFamily: theme.fonts.title500,
     color: theme.colors.heading,
     fontSize: 15,
     textAlign: 'center',
     marginBottom: 64,
+    lineHeight: 25,
   },
 });
