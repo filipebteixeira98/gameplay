@@ -22,9 +22,9 @@ export function SignIn() {
       />
       <View style={styles.content}>
         <Text style={styles.title}>
-          Organize {'\n'}
-          your games {'\n'}
-          easily
+          Connect {'\n'}
+          and organize your {'\n'}
+          games
         </Text>
         <Text style={styles.subtitle}>
           Create groups to play your {'\n'}
