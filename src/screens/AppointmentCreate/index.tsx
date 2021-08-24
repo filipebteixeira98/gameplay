@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  KeyboardAvoidingView,
+  Platform,
+} from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
 
@@ -12,13 +18,17 @@ import { Header } from '../../components/Header';
 import { CategorySelect } from '../../components/CategorySelect';
 import { GuildIcon } from '../../components/GuildIcon';
 import { SmallInput } from '../../components/SmallInput';
+import { TextArea } from '../../components/TextArea';
 
 export function AppointmentCreate() {
   const [category, setCategory] = useState('');
 
   return (
-    <View style={styles.container}>
-      <Background>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}
+    >
+      <ScrollView>
         <Header title="Schedule match" />
         <Text
           style={[
@@ -50,9 +60,36 @@ export function AppointmentCreate() {
               />
             </View>
           </RectButton>
-          <SmallInput />
+          <View style={styles.field}>
+            <View>
+              <Text style={styles.label}>Day and month</Text>
+              <View style={styles.column}>
+                <SmallInput maxLength={2} />
+                <Text style={styles.divider}>/</Text>
+                <SmallInput maxLength={2} />
+              </View>
+            </View>
+            <View>
+              <Text style={styles.label}>Hour and minute</Text>
+              <View style={styles.column}>
+                <SmallInput maxLength={2} />
+                <Text style={styles.divider}>:</Text>
+                <SmallInput maxLength={2} />
+              </View>
+            </View>
+          </View>
+          <View style={[styles.field, { marginBottom: 12 }]}>
+            <Text style={styles.label}>Description</Text>
+            <Text style={styles.charactersLimit}>Max 100 characters</Text>
+          </View>
+          <TextArea
+            multiline
+            maxLength={100}
+            numberOfLines={5}
+            autoCorrect={false}
+          />
         </View>
-      </Background>
-    </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
