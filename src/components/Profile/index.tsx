@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-import { Avatar } from '../../components/Avatar';
-
 import { styles } from './styles';
+
+import { Avatar } from '../Avatar';
 
 export function Profile() {
   return (
