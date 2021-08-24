@@ -19,6 +19,7 @@ import { CategorySelect } from '../../components/CategorySelect';
 import { GuildIcon } from '../../components/GuildIcon';
 import { SmallInput } from '../../components/SmallInput';
 import { TextArea } from '../../components/TextArea';
+import { Button } from '../../components/Button';
 
 export function AppointmentCreate() {
   const [category, setCategory] = useState('');
@@ -88,6 +89,9 @@ export function AppointmentCreate() {
             numberOfLines={5}
             autoCorrect={false}
           />
+          <View style={styles.footer}>
+            <Button title="Schedule" />
+          </View>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
